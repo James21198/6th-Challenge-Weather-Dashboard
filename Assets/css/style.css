@@ -4,6 +4,7 @@ body{
 
 header{
     background-color: rgb(103, 103, 249);
+    color: white;
     text-align: center;
     font-family: 'Trebuchet MS';
     padding: 1px;
@@ -22,4 +23,21 @@ button {
 
 img {
     width: 20px;
+}
+aside {
+    display: inline-block;
+}
+
+h2 {
+    line-height: 1px;
+}
+
+#location {
+    border-radius: 5px;
+    width: 192.5px;
+    height: 25px;
+}
+
+#weather {
+    text-align: center;
 }
