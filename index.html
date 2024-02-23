@@ -1,80 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weather dashboard</title>
-    <link rel="stylesheet" href="./Assets/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>weather dashboard</title>
+        <link rel="stylesheet" href="./Assets/css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Weather Dashboard</h1>
+        </header>
 
-    <main>
-        <aside>
-            <div class="search-section">
-                <input type="text" id="location" placeholder="Enter a Location">
-                <button id="search">Search</button>
-                <div id="error"></div>
-            </div>
-            <hr />
-            <div class="recent-seection" id="recent-locations">
-
-            </div>
-        </aside>
-
-        <section>
-            <div id="weather">
-                <div class="weather-icon">
-                    <div class="weather-location" id="location-name">Enter a Location</div>
-                    <img src="" alt="">
+        <main>
+            <aside>
+                <div class="search-section">
+                    <input type="text" id="location" placeholder="Enter a Location">
+                    <button id="search">Search</button>
+                    <div id="error"></div>
                 </div>
-                <div class="weather-info">
-                    <div class="temperature">
-                        <span>Temperature</span>
-                        <span id="temp_value">-</span>
-                    </div>
-                    <div class="wind">
-                        <span>Wind</span>
-                        <span id="wind_value">-</span>
-                    </div>
-                    <div class="humidity">
-                        <span>Humidity</span>
-                        <span id="humid_value">-</span>
-                    </div>
-                    <div class="uv-index">
-                        <span>UV Index</span>
-                        <span id="uvi_value">-</span>
-                    </div>
-                </div>
+                <hr />
+                <div class="recent-seection" id="recent-locations">
 
-                <div id="forecast">
-                    <h1>5-Day Forecast</h1>
-                    <div id="forecast-days">
-                        <div class="forecast-day">
-                            <div class="forecast-date">Date</div>
-                            <div class="forecast-icon">
-                                <img src="" alt="">
-                            </div>
-                            <div class="forecast-temp">
-                                <span>Temp</span>
-                                <span>0</span>
-                            </div>
-                            <div class="forecast-wind">
-                                <span>Wind</span>
-                                <span>0</span>
-                            </div>
-                            <div class="forecast-humid">
-                                <span>Humidity</span>
-                                <span>0</span>
+                </div>
+            </aside>
+
+            <section>
+                <div id="weather">
+                    <div class="weather-icon">
+                        <div class="weather-location" id="location-name">Enter a Location</div>
+                        <img src="./Assets/images/sun.jpg" alt="sun">
+                    </div>
+                    <div class="weather-info">
+                        <div class="temperature">
+                            <span>Temperature</span>
+                            <span id="temp_value">-</span>
+                        </div>
+                        <div class="wind">
+                            <span>Wind</span>
+                            <span id="wind_value">-</span>
+                        </div>
+                        <div class="humidity">
+                            <span>Humidity</span>
+                            <span id="humid_value">-</span>
+                        </div>
+                        <div class="uv-index">
+                            <span>UV Index</span>
+                            <span id="uvi_value">-</span>
+                        </div>
+                    </div>
+
+                    <div id="forecast">
+                        <h1>5-Day Forecast</h1>
+                        <div id="forecast-days">
+                            <div class="forecast-day">
+                                <div class="forecast-date">Date</div>
+                                <div class="forecast-icon">
+                                    <img src="./Assets/images/sun.jpg" alt="sun">
+                                </div>
+                                <div class="forecast-temp">
+                                    <span>Temp</span>
+                                    <span>0</span>
+                                </div>
+                                <div class="forecast-wind">
+                                    <span>Wind</span>
+                                    <span>0</span>
+                                </div>
+                                <div class="forecast-humid">
+                                    <span>Humidity</span>
+                                    <span>0</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
-    <script src="./Assets/js/script.js"></script>
-</body>
+            </section>
+        </main>
+        <script src="./Assets/js/script.js"></script>
+    </body>
 </html>
