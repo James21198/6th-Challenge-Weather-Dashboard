@@ -18,9 +18,9 @@ function onClickSearch() {
 }
 
 // Lookup the location to get the Lat/Lon
-function locationLookup() {
+function locationLookup(location) {
 
-    var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
+    var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${location}&limit=5&appid=${WEATHER_API_KEY}`;
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -53,7 +53,7 @@ function locationLookup() {
 function displayCurrentWeather(weatherData) {
     const currentWeather = weatherData.current;
 
-    document.getElementById('temp_value').textContent = `${currentWeather.temp}`;
+    document.getElementById('temp_value').textContent = `${currentWeather.temp}°`;
     document.getElementById('wind_value').textContent = `${currentWeather.wind_speed}MPH`;
     document.getElementById('humid_value').textContent = `${currentWeather.temp}%`;
     document.getElementById('uvi_value').textContent = `${currentWeather.temp}`;
