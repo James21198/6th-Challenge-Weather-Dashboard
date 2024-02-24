@@ -18,7 +18,7 @@ h1 {
 }
 
 .container {
-    display: flex;
+    display: block;
     gap: 35px;
     padding: 30px;
 }
@@ -77,9 +77,8 @@ h1 {
 }
 
 .current-weather {
+    margin-top: 20px;
     background: #5372f0;
-    width: 75%;
-    line-height: 40px;
     display: flex;
     color: #fff;
     padding: 20px 70px 20px 20px;
@@ -101,3 +100,33 @@ h1 {
     max-width: 120px;
     margin-top: -15px;
 }
+
+.current-weather .icon h4 {
+    margin-top: -10px;
+    text-transform: capitalize;
+}
+
+.days-forecast h2 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.weather-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.weather-cards .card {
+    background: #6c757d;
+    list-style: none;
+    color: #fff;
+    padding: 18px 16px;
+    border-radius: 5px;
+    width: calc(100% / 5);
+}
+
+.weather-cards .card img {
+    max-width: 70px;
+    margin: 5px 0 -12px 0;
+}
+
