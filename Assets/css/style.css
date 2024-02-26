@@ -27,6 +27,12 @@ h1 {
     width: 550px;
 }
 
+.weather-input .recent-section ul{
+    text-align: center;
+    list-style-type: none;
+    display: none;
+}
+
 .weather-input input{
     width: 100%;
     height: 46px;
