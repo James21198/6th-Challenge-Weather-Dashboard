@@ -9,14 +9,15 @@ const currentWeatherDiv = document.querySelector (".current-weather");
 const recentLocations = [];
 
 function loadRecentLocations() {
-    const storedLocations = JSON.parse(localStorage.getItem('recentLocations'));
+    
+    const recentLocations = JSON.parse(localStorage.getItem('recentLocations'));
 
-    if (storedLocations !== null) {
-        recentLocations.push(...storedLocations);
+    if (recentLocations !== null) {
+        document.getElementById('recent-locations').innerHTML = "";
 
         for (let i = 0; i < recentLocations.length; i++) {
             var newLocation = document.createElement('div');
-            newLocation.classList.add('recent-location');
+            newLocation.classList.add('recent-locations');
             newLocation.textContent = recentLocations[i];
             newLocation.addEventListener('click', onClickRecentLocation);
 
@@ -28,15 +29,16 @@ function loadRecentLocations() {
 function onClickRecentLocation(event) {
     console.log('clicked');
 
-    const location = event.target.textContent;
-    getCityCoordinates(location);
+    const searchLocation = event.target.textContent;
+    getCityCoordinates(searchLocation);
 }
 
-function saveRecentLocation(location) {
-    const index = recentLocations.indexOf(location);
+function saveRecentLocation(searchLocation) {
+    const recentLocations = JSON.parse(localStorage.getItem('recentLocations'))||[]
+    const index = recentLocations.indexOf(searchLocation);
 
     if (index === -1) {
-        recentLocations.push(location);
+        recentLocations.push(searchLocation);
 
         localStorage.setItem('recentLocations', JSON.stringify(recentLocations));
         loadRecentLocations();
@@ -69,6 +71,7 @@ const getWeatherDetails = (cityName, lat, lon) => {
     var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
 
     fetch(apiUrl).then(res => res.json()).then(data => {
+        console.log(data);
         const uniqueForcastDays = [];
 
         const fiveDayForecast = data.list.filter(forecast => {
@@ -77,7 +80,7 @@ const getWeatherDetails = (cityName, lat, lon) => {
                 return uniqueForcastDays.push(forecastDate);
             }
         });
-
+        console.log(uniqueForcastDays);
         cityInput.value = "";
         currentWeatherDiv.innerHTML = "";
         weatherCardsDiv.innerHTML = "";
@@ -94,9 +97,13 @@ const getWeatherDetails = (cityName, lat, lon) => {
     });
 }
 
-const getCityCoordinates = () => {
+function onClickSearch (event) {
     const cityName = cityInput.value.trim();
     if (!cityName) return;
+    getCityCoordinates(cityName);
+}
+
+const getCityCoordinates = (cityName) => {
     
     var geoapiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${cityName}&limit=5&appid=${WEATHER_API_KEY}`;;
 
@@ -104,7 +111,7 @@ const getCityCoordinates = () => {
         if(!data.length) return alert(`No coordinates found for ${cityName}`);
         const {name, lat, lon} = data[0];
         getWeatherDetails(name, lat, lon);
-        saveRecentLocation(location);
+        saveRecentLocation(cityName);
     }).catch (() => {
         alert("An error has occurred whilst trying to fetch your coordinates!");
     });
@@ -113,4 +120,5 @@ const getCityCoordinates = () => {
 
 loadRecentLocations();
 
-searchButton.addEventListener ("click", getCityCoordinates);
+searchButton.addEventListener ("click", onClickSearch);
+
