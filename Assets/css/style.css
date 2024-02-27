@@ -149,3 +149,12 @@ h5 {
     margin: 5px 0 -12px 0;
 }
 
+.recent-section .recent-locations {
+    background-color: #5372f0;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
